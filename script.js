@@ -2,7 +2,7 @@
 const MODES = {
   work:  { label: 'Focus',       minutes: 25 },
   short: { label: 'Short Break', minutes: 5  },
-  long:  { label: 'Long Break',  minutes: 15 },
+  long:  { label: 'Long Break',  minutes: 12 },
 };
 
 const QUOTE = '"We. Did. Not. Care."';
