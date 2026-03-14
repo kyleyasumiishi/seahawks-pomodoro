@@ -1,0 +1,325 @@
+/* Seahawks colors */
+:root {
+  --navy: #002244;
+  --green: #69BE28;
+  --gray: #A5ACAF;
+  --white: #ffffff;
+  --navy-light: #003366;
+  --card-bg: #001a33;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--navy);
+  color: var(--white);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:
+    radial-gradient(ellipse at top, #003366 0%, var(--navy) 60%);
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Header */
+header {
+  text-align: center;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(105, 190, 40, 0.6));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-top: 0.25rem;
+}
+
+.tagline {
+  color: var(--green);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+/* Mode tabs */
+.mode-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--card-bg);
+  padding: 0.35rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  color: var(--gray);
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  color: var(--white);
+}
+
+.tab.active {
+  background: var(--green);
+  color: var(--navy);
+}
+
+/* Timer card */
+.timer-card {
+  position: relative;
+}
+
+.progress-ring-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 10;
+}
+
+.ring-fill {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 553;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear, stroke 0.4s ease;
+  filter: drop-shadow(0 0 8px rgba(105, 190, 40, 0.7));
+}
+
+.ring-fill.break-mode {
+  stroke: var(--gray);
+  filter: drop-shadow(0 0 8px rgba(165, 172, 175, 0.5));
+}
+
+.timer-display {
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  z-index: 1;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0.1em 0.2em;
+  transition: background 0.15s ease;
+}
+
+.timer-display:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.timer-display.editing {
+  background: rgba(255, 255, 255, 0.1);
+  outline: 2px solid var(--green);
+  cursor: text;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: var(--navy);
+  border: none;
+  padding: 0.8rem 2.8rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 20px rgba(105, 190, 40, 0.35);
+  min-width: 130px;
+}
+
+.btn-primary:hover {
+  background: #7dd832;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(105, 190, 40, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary.running {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+  box-shadow: none;
+}
+
+.btn-primary.running:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--gray);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary:hover {
+  color: var(--white);
+  border-color: var(--white);
+  background: rgba(255,255,255,0.06);
+}
+
+/* Session info */
+.session-info {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gray);
+  margin-bottom: 0.4rem;
+  text-align: center;
+}
+
+.dots {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  transition: all 0.3s ease;
+}
+
+.dot.filled {
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: 0 0 8px rgba(105, 190, 40, 0.6);
+}
+
+.count {
+  display: block;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+/* Clear counter button */
+.btn-clear {
+  background: transparent;
+  border: none;
+  color: var(--gray);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  transition: color 0.15s ease, background 0.15s ease;
+  margin-top: -0.5rem;
+}
+
+.btn-clear:hover {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Quote */
+.quote {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--gray);
+  font-style: italic;
+  max-width: 300px;
+  line-height: 1.5;
+  min-height: 2.5em;
+  transition: opacity 0.4s ease;
+}
+
+/* Flash animation on complete */
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.flash {
+  animation: flash 0.5s ease 3;
+}

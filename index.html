@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12s Pomodoro Timer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <img class="logo" src="seahawks logo" alt="Seahawks" />
+      <h1>12s Pomodoro</h1>
+      <p class="tagline">Lock in. Let's go.</p>
+    </header>
+
+    <div class="mode-tabs">
+      <button class="tab active" data-mode="work">Focus</button>
+      <button class="tab" data-mode="short">Short Break</button>
+      <button class="tab" data-mode="long">Long Break</button>
+    </div>
+
+    <div class="timer-card">
+      <div class="progress-ring-wrapper">
+        <svg class="progress-ring" viewBox="0 0 200 200">
+          <circle class="ring-bg" cx="100" cy="100" r="88" />
+          <circle class="ring-fill" cx="100" cy="100" r="88" id="progressRing" />
+        </svg>
+        <div class="timer-display" id="timerDisplay">25:00</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn-secondary" id="resetBtn" title="Reset">↺</button>
+      <button class="btn-primary" id="startBtn">Start</button>
+      <button class="btn-secondary" id="skipBtn" title="Skip">⏭</button>
+    </div>
+
+    <div class="session-info">
+      <div class="pomodoros">
+        <span class="label">Pomodoros</span>
+        <div class="dots" id="pomodoroDots">
+          <span class="dot" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+          <span class="dot" data-index="3"></span>
+        </div>
+      </div>
+      <div class="completed">
+        <span class="label">Completed today</span>
+        <span class="count" id="completedCount">0</span>
+      </div>
+    </div>
+
+    <button class="btn-clear" id="clearCounterBtn" title="Clear pomodoro counter">↺ clear count</button>
+
+    <div class="quote" id="quoteBox"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
